@@ -1,0 +1,171 @@
+execute pathogen#infect()
+syntax on
+colorscheme dracula
+
+set autoindent
+set background=dark
+set colorcolumn=80
+set cursorline
+set encoding=utf-8
+set fileencoding=utf-8
+set ignorecase
+set incsearch
+set list
+set listchars=tab:→·,trail:~
+set nobackup
+set noswapfile
+set relativenumber
+set number
+set pastetoggle=<F2>
+set shiftwidth=2
+set smartcase
+set smartindent
+set smarttab
+set softtabstop=2
+set splitright
+set termguicolors
+set wildmenu
+
+filetype on
+filetype indent on
+filetype plugin indent on
+
+autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
+
+highlight Pmenu ctermbg=black guibg=black
+
+" Search highlight
+augroup vimrc-incsearch-highlight
+  autocmd!
+  autocmd CmdlineEnter [/\?] :set hlsearch
+  autocmd CmdlineLeave [/\?] :set nohlsearch
+augroup end
+
+" Mapping
+imap <c-b> <home>byebug<cr><esc>
+nmap <c-n> :NERDTreeToggle<cr>
+nmap <c-p> :Files<cr>
+imap <f5> <esc>gg=G <bar> ``
+nmap <f5> <esc>gg=G <bar> ``
+nmap <f9> :set relativenumber!<cr>
+nmap <f10> :call CloseAllBuffersButCurrent()<cr>
+nmap <f12> :call LeftMarginToggle()<cr>
+nmap <leader>m :call MouseToggle()<cr>
+nmap <leader>s :,$s/<c-r><c-w>//gc<left><left><left>
+nmap <s-pagedown> :bnext<cr>
+nmap <s-pageup> :bprevious<cr>
+" Disabling keys
+nmap <del> <nop>
+vmap <del> <nop>
+" Don't work
+nmap <leader>p "+p
+nmap <leader>y "+y
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+
+" Closetag
+let g:closetag_filenames = '*.html,*.erb'
+
+" Hardtime
+let g:hardtime_allow_different_key = 1
+let g:hardtime_default_on = 1
+let g:hardtime_ignore_buffer_patterns = ['CustomPatt[ae]rn', 'NERD.*']
+let g:hardtime_ignore_quickfix = 1
+let g:hardtime_maxcount = 5
+let g:list_of_insert_keys = ['<up>', '<down>']
+
+" IndentLine_char
+let g:indentLine_char = '¦'
+
+" Move
+let g:move_key_modifier = 'C'
+
+" NERDTree
+let g:NERDTreeWinSize = winwidth(0) / 4
+
+" Rainbow
+let g:rainbow_active = 1
+
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+
+
+" -----------------------------------------------------------------------------
+" FUNCTIONS
+" -----------------------------------------------------------------------------
+function! MouseToggle()
+  echohl WarningMsg
+  if &mouse == 'a'
+    set mouse=
+    echo 'Mouse disabled'
+  else
+    set mouse=a
+    echo 'Mouse enabled'
+  endif
+  echohl NoneMsg
+endfunc
+
+
+
+function! LeftMarginToggle()
+  let l:name = 'left_magin'
+  if bufwinnr(l:name) > 0
+    wincmd o
+  else
+    let l:width = winwidth(0) / 4
+    execute 'topleft' l:width . 'vsplit +setlocal\ nobuflisted' l:name | wincmd p
+  endif
+endfunction
+
+
+
+function! CloseAllBuffersButCurrent()
+  let curr = bufnr('%')
+  let last = bufnr('$')
+
+  if curr > 1    | silent! execute '1,' . (curr-1) . 'bd'       | endif
+  if curr < last | silent! execute (curr+1) . ',' . last . 'bd' | endif
+endfunction
+
+
+
+" -----------------------------------------------------------------------------
+" PLUGINS
+" -----------------------------------------------------------------------------
+" mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+" curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+" cd ~/.vim/bundle
+
+" git clone https://github.com/jiangmiao/auto-pairs
+" git clone https://github.com/lilydjwg/colorizer
+" git clone https://github.com/junegunn/fzf
+" git clone https://github.com/junegunn/fzf.vim
+" git clone https://github.com/yggdroot/indentline
+" git clone https://github.com/vim-scripts/loremipsum
+" git clone https://github.com/tmhedberg/matchit
+" git clone https://github.com/scrooloose/nerdtree
+" git clone https://github.com/luochen1990/rainbow
+" git clone https://github.com/danro/rename.vim
+" git clone https://github.com/bbatsov/rubocop
+" git clone https://github.com/scrooloose/syntastic
+" git clone https://github.com/zxqfl/tabnine-vim
+" git clone https://github.com/dracula/vim
+" git clone https://github.com/vim-airline/vim-airline
+" git clone https://github.com/alvan/vim-closetag
+" git clone https://github.com/tpope/vim-commentary
+" git clone https://github.com/tpope/vim-dadbod
+" git clone https://github.com/kqito/vim-easy-replace
+" git clone https://github.com/tpope/vim-endwise
+" git clone https://github.com/tpope/vim-fugitive
+" git clone https://github.com/takac/vim-hardtime.git
+" git clone https://github.com/matze/vim-move
+" git clone https://github.com/roxma/vim-paste-easy
+" git clone https://github.com/tpope/vim-rails
+" git clone https://github.com/ngmy/vim-rubocop
+" git clone https://github.com/vim-ruby/vim-ruby
+" git clone https://github.com/tpope/vim-surround
+" git clone https://github.com/valloric/youcompleteme
