@@ -44,8 +44,8 @@ augroup end
 
 " Mapping
 imap <c-b> <home>byebug<cr><esc>
-nmap <c-n> :NERDTreeToggle<cr>
 nmap <c-p> :Files<cr>
+nmap <c-t> :NERDTreeToggle<cr>
 imap <f5> <esc>gg=G <bar> ``
 nmap <f5> <esc>gg=G <bar> ``
 nmap <f9> :set relativenumber!<cr>
@@ -64,7 +64,7 @@ nmap <leader>p "+p
 nmap <leader>y "+y
 
 " Airline
-let g:airline#extensions#tabline#enabled = 1
+let ggairline#extensions#tabline#enabled = 1
 
 " Closetag
 let g:closetag_filenames = '*.html,*.erb'
@@ -169,4 +169,5 @@ endfunction
 " git clone https://github.com/ngmy/vim-rubocop
 " git clone https://github.com/vim-ruby/vim-ruby
 " git clone https://github.com/tpope/vim-surround
+" git clone https://github.com/mg979/vim-visual-multi
 " git clone https://github.com/valloric/youcompleteme
