@@ -43,16 +43,16 @@ augroup vimrc-incsearch-highlight
 augroup end
 
 " Mapping
-imap <c-b> <home>byebug<cr><esc>
+imap <c-b> <end>byebug<esc>
 nmap <c-n> :NERDTreeToggle<cr>
 nmap <c-p> :Files<cr>
+nmap <c-s> :,$s/<c-r><c-w>//gc<left><left><left>
 imap <f5> <esc>gg=G <bar> ``
 nmap <f5> <esc>gg=G <bar> ``
 nmap <f9> :set relativenumber!<cr>
 nmap <f10> :call CloseAllBuffersButCurrent()<cr>
 nmap <f12> :call LeftMarginToggle()<cr>
 nmap <leader>m :call MouseToggle()<cr>
-nmap <leader>rs :,$s/<c-r><c-w>//gc<left><left><left>
 nmap <leader>s /<c-r><c-w>
 nmap <s-pagedown> :bnext<cr>
 nmap <s-pageup> :bprevious<cr>
@@ -158,8 +158,6 @@ endfunction
 " git clone https://github.com/vim-airline/vim-airline
 " git clone https://github.com/alvan/vim-closetag
 " git clone https://github.com/tpope/vim-commentary
-" git clone https://github.com/tpope/vim-dadbod
-" git clone https://github.com/kqito/vim-easy-replace
 " git clone https://github.com/tpope/vim-endwise
 " git clone https://github.com/tpope/vim-fugitive
 " git clone https://github.com/takac/vim-hardtime.git
