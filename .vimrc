@@ -40,18 +40,20 @@ augroup vimrc-incsearch-highlight
   autocmd!
   autocmd CmdlineEnter [/\?] :set hlsearch
   autocmd CmdlineLeave [/\?] :set nohlsearch
+  autocmd CmdlineEnter [:]   :set hlsearch
+  autocmd CmdlineLeave [:]   :set nohlsearch
 augroup end
 
 " Mapping
 imap <c-b> <end>byebug<esc>
-nmap <c-n> :NERDTreeToggle<cr>
 nmap <c-p> :Files<cr>
-nmap <c-s> :,$s/<c-r><c-w>//gc<left><left><left>
+nmap <c-t> :NERDTreeToggle<cr>
 imap <f5> <esc>gg=G <bar> ``
 nmap <f5> <esc>gg=G <bar> ``
 nmap <f9> :set relativenumber!<cr>
 nmap <f10> :call CloseAllBuffersButCurrent()<cr>
 nmap <f12> :call LeftMarginToggle()<cr>
+nmap <leader>f :,$s/<c-r><c-w>//gc<left><left><left>
 nmap <leader>m :call MouseToggle()<cr>
 nmap <leader>s /<c-r><c-w>
 nmap <s-pagedown> :bnext<cr>
@@ -146,11 +148,9 @@ endfunction
 " git clone https://github.com/junegunn/fzf
 " git clone https://github.com/junegunn/fzf.vim
 " git clone https://github.com/yggdroot/indentline
-" git clone https://github.com/vim-scripts/loremipsum
 " git clone https://github.com/tmhedberg/matchit
 " git clone https://github.com/scrooloose/nerdtree
 " git clone https://github.com/luochen1990/rainbow
-" git clone https://github.com/danro/rename.vim
 " git clone https://github.com/bbatsov/rubocop
 " git clone https://github.com/scrooloose/syntastic
 " git clone https://github.com/zxqfl/tabnine-vim
