@@ -47,15 +47,14 @@ augroup end
 " Mapping
 imap <c-b> <end>byebug<esc>
 nmap <c-p> :Files<cr>
-nmap <c-t> :NERDTreeToggle<cr>
+nmap <c-n> :NERDTreeToggle<cr>
 imap <f5> <esc>gg=G <bar> ``
 nmap <f5> <esc>gg=G <bar> ``
 nmap <f9> :set relativenumber!<cr>
 nmap <f10> :call CloseAllBuffersButCurrent()<cr>
 nmap <f12> :call LeftMarginToggle()<cr>
-nmap <leader>f :,$s/<c-r><c-w>//gc<left><left><left>
 nmap <leader>m :call MouseToggle()<cr>
-nmap <leader>s /<c-r><c-w>
+nmap <leader>s :,$s/<c-r><c-w>//gc<left><left><left>
 nmap <s-pagedown> :bnext<cr>
 nmap <s-pageup> :bprevious<cr>
 " Disabling keys
@@ -86,6 +85,11 @@ let g:rainbow_active = 1
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
+
+" Visual-multi
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<c-d>'
+let g:VM_maps['Find Subword Under'] = '<c-d>'
 
 
 
@@ -152,7 +156,6 @@ endfunction
 " git clone https://github.com/tpope/vim-commentary
 " git clone https://github.com/tpope/vim-endwise
 " git clone https://github.com/tpope/vim-fugitive
-" git clone https://github.com/takac/vim-hardtime.git
 " git clone https://github.com/matze/vim-move
 " git clone https://github.com/roxma/vim-paste-easy
 " git clone https://github.com/tpope/vim-rails
