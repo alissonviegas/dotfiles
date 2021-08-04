@@ -71,14 +71,6 @@ let ggairline#extensions#tabline#enabled = 1
 " Closetag
 let g:closetag_filenames = '*.html,*.erb'
 
-" Hardtime
-let g:hardtime_allow_different_key = 1
-let g:hardtime_default_on = 1
-let g:hardtime_ignore_buffer_patterns = ['CustomPatt[ae]rn', 'NERD.*']
-let g:hardtime_ignore_quickfix = 1
-let g:hardtime_maxcount = 5
-let g:list_of_insert_keys = ['<up>', '<down>']
-
 " IndentLine_char
 let g:indentLine_char = '¦'
 
