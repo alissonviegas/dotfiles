@@ -4,6 +4,7 @@ colorscheme dracula
 
 set autoindent
 set background=dark
+set clipboard=unnamedplus
 set colorcolumn=80
 set cursorline
 set encoding=utf-8
@@ -30,10 +31,15 @@ filetype on
 filetype indent on
 filetype plugin indent on
 
-autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType ruby  setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
 
-highlight Pmenu ctermbg=black guibg=black
+" Custom colors
+highlight Pmenu     ctermbg=0     ctermfg=15     guibg=#000000    guifg=#ffffff
+highlight VM_Extend ctermbg=24    ctermfg=237    guibg=#5f8787    guifg=#ffffff
+highlight VM_Cursor ctermbg=31    ctermfg=237    guibg=#00af87    guifg=#ffffff
+highlight VM_Insert ctermbg=239   ctermfg=237    guibg=#5f0087    guifg=#ffffff
+highlight VM_Mono   ctermbg=180   ctermfg=235    guibg=#e05f51    guifg=#ffffff
 
 " Search highlight
 augroup vimrc-incsearch-highlight
@@ -45,21 +51,23 @@ augroup vimrc-incsearch-highlight
 augroup end
 
 " Mapping
-imap <c-b> <end>byebug<esc>
-nmap <c-p> :Files<cr>
-nmap <c-n> :NERDTreeToggle<cr>
-imap <f5> <esc>gg=G <bar> ``
-nmap <f5> <esc>gg=G <bar> ``
-nmap <f9> :set relativenumber!<cr>
-nmap <f10> :call CloseAllBuffersButCurrent()<cr>
-nmap <f12> :call LeftMarginToggle()<cr>
-nmap <leader>m :call MouseToggle()<cr>
-nmap <leader>s :,$s/<c-r><c-w>//gc<left><left><left>
+imap <c-b>        <end>byebug<esc>
+nmap <c-p>        :Files<cr>
+nmap <c-n>        :NERDTreeToggle<cr>
+imap <f5>         <esc>gg=G <bar> ``
+nmap <f5>         <esc>gg=G <bar> ``
+nmap <f9>         :set relativenumber!<cr>
+nmap <f10>        :call CloseAllBuffersButCurrent()<cr>
+nmap <f12>        :call LeftMarginToggle()<cr>
+nmap <leader>m    :call MouseToggle()<cr>
+nmap <leader>s    :,$s/<c-r><c-w>//gc<left><left><left>
 nmap <s-pagedown> :bnext<cr>
-nmap <s-pageup> :bprevious<cr>
+nmap <s-pageup>   :bprevious<cr>
+
 " Disabling keys
 nmap <del> <nop>
 vmap <del> <nop>
+
 " Don't work
 nmap <leader>p "+p
 nmap <leader>y "+y
@@ -90,6 +98,8 @@ let g:syntastic_auto_loc_list = 1
 let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<c-d>'
 let g:VM_maps['Find Subword Under'] = '<c-d>'
+let g:VM_show_warnings = 0
+let g:VM_theme_set_by_colorscheme = 1
 
 
 
