@@ -61,6 +61,7 @@ nmap <f10>        :call CloseAllBuffersButCurrent()<cr>
 nmap <f12>        :call LeftMarginToggle()<cr>
 nmap <leader>m    :call MouseToggle()<cr>
 nmap <leader>s    :,$s/<c-r><c-w>//gc<left><left><left>
+nmap <leader>/    /<c-r><c-w>
 nmap <s-pagedown> :bnext<cr>
 nmap <s-pageup>   :bprevious<cr>
 
