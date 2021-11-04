@@ -51,6 +51,7 @@ augroup vimrc-incsearch-highlight
 augroup end
 
 " Mapping
+imap <c-space>    <end><%= %><left><left><left>
 imap <c-b>        <end>byebug<esc>
 nmap <c-p>        :Files<cr>
 nmap <c-n>        :NERDTreeToggle<cr>
