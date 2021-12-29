@@ -87,7 +87,7 @@ let g:indentLine_char = '¦'
 let g:move_key_modifier = 'C'
 
 " NERDTree
-let g:NERDTreeWinSize = winwidth(0) / 4
+let g:NERDTreeWinSize = winwidth(0) / 3
 
 " Rainbow
 let g:rainbow_active = 1
@@ -127,7 +127,7 @@ function! LeftMarginToggle()
   if bufwinnr(l:name) > 0
     wincmd o
   else
-    let l:width = winwidth(0) / 4
+    let l:width = winwidth(0) / 3
     execute 'topleft' l:width . 'vsplit +setlocal\ nobuflisted' l:name | wincmd p
   endif
 endfunction
