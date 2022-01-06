@@ -1,6 +1,3 @@
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 alias pgs='sudo service postgresql start'
 alias pgc='pgcli -U postgres'
 alias redis='redis-server'
