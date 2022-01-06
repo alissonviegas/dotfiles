@@ -41,6 +41,10 @@ highlight VM_Cursor ctermbg=31    ctermfg=237    guibg=#00af87    guifg=#ffffff
 highlight VM_Insert ctermbg=239   ctermfg=237    guibg=#5f0087    guifg=#ffffff
 highlight VM_Mono   ctermbg=180   ctermfg=235    guibg=#e05f51    guifg=#ffffff
 
+" Cursor width
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
 " Search highlight
 augroup vimrc-incsearch-highlight
   autocmd!
@@ -174,4 +178,5 @@ endfunction
 " git clone https://github.com/ngmy/vim-rubocop
 " git clone https://github.com/vim-ruby/vim-ruby
 " git clone https://github.com/tpope/vim-surround
+" git clone https://github.com/mg979/vim-visual-multi
 " git clone https://github.com/valloric/youcompleteme
