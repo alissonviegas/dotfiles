@@ -1,0 +1,20 @@
+[color]
+	ui = true
+[user]
+	name = Alisson Viegas
+	email = alissonviegas@acsiv.com.br
+[alias]
+	ac = !git add -A && git commit -m
+	am = commit --amend
+	cb = checkout -b
+	cm = checkout main
+	cm = commit
+	co = checkout
+	df = diff
+	lg = log --all --graph --decorate --oneline --abbrev-commit
+	save = !git add -A && git commit -m 'SAVEPOINT'
+	st = status -sb
+	tags = tag -l
+	undo = git reset --hard HEAD~1
+[core]
+	editor = vim
