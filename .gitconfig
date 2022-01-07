@@ -5,7 +5,7 @@
 	email = alissonviegas@acsiv.com.br
 [alias]
 	ac = !git add -A && git commit -m
-	am = commit --amend
+	amend = commit --amend
 	cb = checkout -b
 	cm = checkout main
 	cm = commit
