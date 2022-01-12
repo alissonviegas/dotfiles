@@ -84,6 +84,9 @@ let ggairline#extensions#tabline#enabled = 1
 " Closetag
 let g:closetag_filenames = '*.html,*.erb'
 
+" Hardtime
+let g:hardtime_default_on = 1
+
 " IndentLine_char
 let g:indentLine_char = '¦'
 
@@ -172,6 +175,7 @@ endfunction
 " git clone https://github.com/tpope/vim-commentary
 " git clone https://github.com/tpope/vim-endwise
 " git clone https://github.com/tpope/vim-fugitive
+" git clone https://github.com/takac/vim-hardtime.git
 " git clone https://github.com/matze/vim-move
 " git clone https://github.com/roxma/vim-paste-easy
 " git clone https://github.com/tpope/vim-rails
