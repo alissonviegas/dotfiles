@@ -31,6 +31,7 @@ filetype on
 filetype indent on
 filetype plugin indent on
 
+autocmd FileType help  wincmd L
 autocmd FileType ruby  setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
 
