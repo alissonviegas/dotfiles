@@ -85,6 +85,12 @@ let ggairline#extensions#tabline#enabled = 1
 " Closetag
 let g:closetag_filenames = '*.html,*.erb'
 
+" Confirm-quit
+cnoremap <silent> q<CR>  :call confirm_quit#confirm(0, 'last')<CR>
+cnoremap <silent> wq<CR> :call confirm_quit#confirm(1, 'last')<CR>
+cnoremap <silent> x<CR>  :call confirm_quit#confirm(1, 'last')<CR>
+nnoremap <silent> ZZ     :call confirm_quit#confirm(1, 'last')<CR>
+
 " Hardtime
 let g:hardtime_default_on = 1
 
@@ -161,6 +167,7 @@ endfunction
 
 " git clone https://github.com/jiangmiao/auto-pairs
 " git clone https://github.com/lilydjwg/colorizer
+" git clone https://github.com/vim-scripts/confirm-quit
 " git clone https://github.com/junegunn/fzf
 " git clone https://github.com/junegunn/fzf.vim
 " git clone https://github.com/yggdroot/indentline
