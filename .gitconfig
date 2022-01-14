@@ -13,7 +13,7 @@
 	df = diff
 	lg = log --all --graph --decorate --oneline --abbrev-commit
 	save = !git add -A && git commit -m 'SAVEPOINT'
-	st = status -sb
+	st = status
 	tags = tag -l
 	undo = git reset --hard HEAD~1
 [core]
