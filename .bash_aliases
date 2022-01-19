@@ -1,5 +1,6 @@
 alias pg='psql -U postgres'
 alias redis='redis-server'
+alias ms='mailcatcher && bundle exec sidekiq'
 alias wf="echo Git alias: && echo ========== &&
   grep -zoP '(?s)(?<=\[alias]\n)(.*)(?=\[core)' --color=never ~/.gitconfig | cut -f2 -d$'\t' &&
   cat /mnt/c/Code/workflow.txt"
