@@ -8,13 +8,7 @@
 	amend = commit --amend
 	cb = checkout -b
 	cm = checkout main
-	cm = commit
-	co = checkout
-	df = diff
 	lg = log --all --graph --decorate --oneline --abbrev-commit
-	save = !git add -A && git commit -m 'SAVEPOINT'
-	st = status
-	tags = tag -l
 	undo = git reset --hard HEAD~1
 [core]
 	editor = vim
