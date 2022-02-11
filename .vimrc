@@ -36,11 +36,12 @@ autocmd FileType ruby  setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
 
 " Custom colors
-highlight Pmenu     ctermbg=0     ctermfg=15     guibg=#000000    guifg=#ffffff
-highlight VM_Extend ctermbg=24    ctermfg=237    guibg=#5f8787    guifg=#ffffff
-highlight VM_Cursor ctermbg=31    ctermfg=237    guibg=#00af87    guifg=#ffffff
-highlight VM_Insert ctermbg=239   ctermfg=237    guibg=#5f0087    guifg=#ffffff
-highlight VM_Mono   ctermbg=180   ctermfg=235    guibg=#e05f51    guifg=#ffffff
+highlight Pmenu       guibg=#000000  guifg=#ffffff
+highlight TabLineSel  guibg=#000000  guifg=#ffffff
+highlight VM_Extend   guibg=#5f8787  guifg=#ffffff
+highlight VM_Cursor   guibg=#00af87  guifg=#ffffff
+highlight VM_Insert   guibg=#5f0087  guifg=#ffffff
+highlight VM_Mono     guibg=#e05f51  guifg=#ffffff
 
 " Cursor width
 let &t_SI = "\e[6 q"
