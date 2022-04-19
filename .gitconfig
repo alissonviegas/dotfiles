@@ -5,10 +5,8 @@
 	email = alissonviegas@acsiv.com.br
 [alias]
 	ac = !git add -A && git commit -m
-	amend = commit --amend
 	cb = checkout -b
 	cm = checkout main
 	lg = log --all --graph --decorate --oneline --abbrev-commit
-	undo = git reset --hard HEAD~1
 [core]
 	editor = vim
