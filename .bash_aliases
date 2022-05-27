@@ -1,3 +1,4 @@
+alias dry='ruby lib/dry.rb'
 alias ms='mailcatcher && bundle exec sidekiq'
 alias pg='psql -U postgres'
 alias r='rails s'
