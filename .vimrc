@@ -61,8 +61,8 @@ imap <c-space>    <end><%= %><left><left><left>
 imap <c-b>        <end>byebug<esc>
 nmap <c-p>        :Files<cr>
 nmap <c-n>        :NERDTreeToggle<cr>
-imap <f5>         <esc>gg=G <bar> ``
-nmap <f5>         <esc>gg=G <bar> ``
+imap <f5>         <esc>gg=G <bar> `` <bar> zz
+nmap <f5>         <esc>gg=G <bar> `` <bar> zz
 nmap <f9>         :set relativenumber!<cr>
 nmap <f10>        :call CloseAllBuffersButCurrent()<cr>
 nmap <f12>        :call LeftMarginToggle()<cr>
@@ -90,6 +90,7 @@ let g:closetag_filenames = '*.html,*.erb'
 let g:hardtime_default_on = 1
 let g:hardtime_allow_different_key = 1
 let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
+let g:hardtime_maxcount = 5
 
 " IndentLine_char
 let g:indentLine_char = '¦'
@@ -113,6 +114,15 @@ let g:VM_maps['Find Under']         = '<c-d>'
 let g:VM_maps['Find Subword Under'] = '<c-d>'
 let g:VM_show_warnings = 0
 let g:VM_theme_set_by_colorscheme = 1
+
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if executable(s:clip)
+  augroup WSLYank
+    autocmd!
+    autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+  augroup END
+endif
 
 
 
