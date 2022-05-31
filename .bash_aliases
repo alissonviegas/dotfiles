@@ -1,8 +1,10 @@
 alias dry='ruby lib/dry.rb'
+alias e='exit'
 alias ms='mailcatcher && bundle exec sidekiq'
 alias pg='psql -U postgres'
 alias r='rails s'
 alias redis='redis-server'
+alias v='vim'
 alias wf="echo Git alias: && echo ========== &&
   grep -zoP '(?s)(?<=\[alias]\n)(.*)(?=\[core)' --color=never ~/.gitconfig | cut -f2 -d$'\t' &&
   cat /home/alisson/code/workflow.txt"
