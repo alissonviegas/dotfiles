@@ -61,8 +61,8 @@ imap <c-space>    <end><%= %><left><left><left>
 imap <c-b>        <end>byebug<esc>
 nmap <c-p>        :Files<cr>
 nmap <c-n>        :NERDTreeToggle<cr>
-imap <f5>         <esc>gg=G <bar> `` <bar> zz
-nmap <f5>         <esc>gg=G <bar> `` <bar> zz
+imap <f5>         <esc>mmgg=G'm
+nmap <f5>         mmgg=G'm
 nmap <f9>         :set relativenumber!<cr>
 nmap <f10>        :call CloseAllBuffersButCurrent()<cr>
 nmap <f12>        :call LeftMarginToggle()<cr>
@@ -75,10 +75,6 @@ nmap <s-pageup>   :bprevious<cr>
 " Disabling keys
 nmap <del> <nop>
 vmap <del> <nop>
-
-" Don't work
-nmap <leader>p "+p
-nmap <leader>y "+y
 
 " Airline
 let ggairline#extensions#tabline#enabled = 1

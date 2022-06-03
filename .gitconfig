@@ -9,5 +9,6 @@
 	cm = checkout main
 	co = commit -m
 	lg = log --all --graph --decorate --oneline --abbrev-commit
+	st = status
 [core]
 	editor = vim
