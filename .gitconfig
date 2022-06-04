@@ -6,9 +6,7 @@
 [alias]
 	ac = !git add -A && git commit -m
 	cb = checkout -b
-	cm = checkout main
 	co = commit -m
 	lg = log --all --graph --decorate --oneline --abbrev-commit
-	st = status
 [core]
 	editor = vim

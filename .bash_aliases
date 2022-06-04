@@ -1,12 +1,7 @@
-alias g='git'
-alias e='exit'
-alias v='vim'
-alias r='rails s'
-
 alias dry='ruby lib/dry.rb'
-alias ms='mailcatcher && bundle exec sidekiq'
 alias pg='psql -U postgres'
 alias redis='redis-server'
+alias sidekiq='bundle exec sidekiq'
 alias wf="echo Git alias: && echo ========== &&
   grep -zoP '(?s)(?<=\[alias]\n)(.*)(?=\[core)' --color=never ~/.gitconfig | cut -f2 -d$'\t' &&
   cat /home/alisson/code/workflow.txt"
