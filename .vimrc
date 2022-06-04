@@ -61,8 +61,9 @@ imap <c-space>    <end><%= %><left><left><left>
 imap <c-b>        debugger
 nmap <c-p>        :Files<cr>
 nmap <c-n>        :NERDTreeToggle<cr>
-imap <f5>         <esc>mmgg=G'm
-nmap <f5>         mmgg=G'm
+imap <f5>         <esc>mmgg=G'mzt
+nmap <f5>         mmgg=G'mzt
+nmap <f8>         :set conceallevel=0<cr>
 nmap <f9>         :set relativenumber!<cr>
 nmap <f10>        :call CloseAllBuffersButCurrent()<cr>
 nmap <f12>        :call LeftMarginToggle()<cr>
