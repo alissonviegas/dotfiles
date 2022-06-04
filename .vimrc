@@ -58,7 +58,7 @@ augroup end
 
 " Mapping
 imap <c-space>    <end><%= %><left><left><left>
-imap <c-b>        <end>byebug<esc>
+imap <c-b>        debugger
 nmap <c-p>        :Files<cr>
 nmap <c-n>        :NERDTreeToggle<cr>
 imap <f5>         <esc>mmgg=G'm
