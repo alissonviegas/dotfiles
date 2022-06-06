@@ -35,6 +35,9 @@ autocmd FileType help  wincmd L
 autocmd FileType ruby  setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
 
+autocmd InsertEnter *.{markdown,md} set conceallevel=0
+autocmd InsertLeave *.{markdown,md} set conceallevel=2
+
 " Custom colors
 highlight Pmenu        ctermbg=0     ctermfg=15     guibg=#000000    guifg=#ffffff
 highlight TabLineSel   ctermbg=0     ctermfg=15     guibg=#000000    guifg=#ffffff
@@ -63,7 +66,6 @@ nmap <c-p>        :Files<cr>
 nmap <c-n>        :NERDTreeToggle<cr>
 imap <f5>         <esc>mmgg=G'mzt
 nmap <f5>         mmgg=G'mzt
-nmap <f8>         :set conceallevel=0<cr>
 nmap <f9>         :set relativenumber!<cr>
 nmap <f10>        :call CloseAllBuffersButCurrent()<cr>
 nmap <f12>        :call LeftMarginToggle()<cr>
