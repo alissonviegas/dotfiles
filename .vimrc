@@ -1,4 +1,34 @@
-execute pathogen#infect()
+call plug#begin()
+Plug 'alvan/vim-closetag'
+Plug 'bbatsov/rubocop'
+Plug 'dracula/vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'lilydjwg/colorizer'
+Plug 'luochen1990/rainbow'
+Plug 'matze/vim-move'
+Plug 'mg979/vim-visual-multi'
+Plug 'ngmy/vim-rubocop'
+Plug 'pacha/vem-tabline'
+Plug 'roxma/vim-paste-easy'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'takac/vim-hardtime'
+Plug 'tmhedberg/matchit'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-ruby/vim-ruby'
+Plug 'yggdroot/indentline'
+
+" https://github.com/ycm-core/YouCompleteMe#linux-64-bit
+Plug 'valloric/youcompleteme'
+call plug#end()
+
 syntax on
 colorscheme dracula
 
@@ -161,39 +191,3 @@ function! CloseAllBuffersButCurrent()
   if curr > 1    | silent! execute '1,' . (curr-1) . 'bd'       | endif
   if curr < last | silent! execute (curr+1) . ',' . last . 'bd' | endif
 endfunction
-
-
-
-" -----------------------------------------------------------------------------
-" PLUGINS
-" -----------------------------------------------------------------------------
-" mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-" curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-" cd ~/.vim/bundle
-
-" git clone https://github.com/jiangmiao/auto-pairs
-" git clone https://github.com/lilydjwg/colorizer
-" git clone https://github.com/junegunn/fzf
-" git clone https://github.com/junegunn/fzf.vim
-" git clone https://github.com/yggdroot/indentline
-" git clone https://github.com/tmhedberg/matchit
-" git clone https://github.com/scrooloose/nerdtree
-" git clone https://github.com/luochen1990/rainbow
-" git clone https://github.com/bbatsov/rubocop
-" git clone https://github.com/scrooloose/syntastic
-" git clone https://github.com/zxqfl/tabnine-vim
-" git clone https://github.com/dracula/vim
-" git clone https://github.com/vim-airline/vim-airline
-" git clone https://github.com/alvan/vim-closetag
-" git clone https://github.com/tpope/vim-commentary
-" git clone https://github.com/tpope/vim-endwise
-" git clone https://github.com/tpope/vim-fugitive
-" git clone https://github.com/takac/vim-hardtime.git
-" git clone https://github.com/matze/vim-move
-" git clone https://github.com/roxma/vim-paste-easy
-" git clone https://github.com/tpope/vim-rails
-" git clone https://github.com/ngmy/vim-rubocop
-" git clone https://github.com/vim-ruby/vim-ruby
-" git clone https://github.com/tpope/vim-surround
-" git clone https://github.com/mg979/vim-visual-multi
-" git clone https://github.com/valloric/youcompleteme
