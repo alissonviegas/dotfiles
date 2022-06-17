@@ -43,6 +43,7 @@ set ignorecase
 set incsearch
 set list
 set listchars=tab:→·,trail:~
+set mouse=a
 set nobackup
 set noswapfile
 set relativenumber
