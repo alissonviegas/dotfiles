@@ -43,7 +43,6 @@ set ignorecase
 set incsearch
 set list
 set listchars=tab:→·,trail:~
-set mouse=a
 set nobackup
 set noswapfile
 set relativenumber
@@ -153,6 +152,9 @@ if executable(s:clip)
     autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
   augroup END
 endif
+
+" Activate ag_raw
+command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 
 
