@@ -10,3 +10,5 @@
 	lg = log --all --graph --decorate --oneline --abbrev-commit
 [core]
 	editor = vim
+[help]
+	autocorrect = 1
