@@ -1,5 +1,6 @@
 alias dry='ruby lib/dry.rb'
 alias pg='psql -U postgres'
+alias r='bin/dev'
 alias redis='redis-server'
 alias sidekiq='bundle exec sidekiq'
 alias wf="echo Git alias: && echo ========== &&
