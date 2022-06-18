@@ -9,7 +9,6 @@ Plug 'lilydjwg/colorizer'
 Plug 'luochen1990/rainbow'
 Plug 'matze/vim-move'
 Plug 'ngmy/vim-rubocop'
-Plug 'pacha/vem-tabline'
 Plug 'roxma/vim-paste-easy'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -17,7 +16,6 @@ Plug 'svermeulen/vim-easyclip'
 Plug 'takac/vim-hardtime'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
@@ -25,6 +23,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-ruby/vim-ruby'
 Plug 'yggdroot/indentline'
+Plug 'zxqfl/tabnine-vim'
 
 " https://github.com/ycm-core/YouCompleteMe#linux-64-bit
 Plug 'valloric/youcompleteme'
@@ -65,6 +64,7 @@ filetype plugin indent on
 autocmd FileType help  wincmd L
 autocmd FileType ruby  setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType eruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<%=' : '%>'})
 
 autocmd InsertEnter *.{markdown,md} set conceallevel=0
 autocmd InsertLeave *.{markdown,md} set conceallevel=2
@@ -91,7 +91,6 @@ augroup vimrc-incsearch-highlight
 augroup end
 
 " Mapping
-imap <c-space>    <end><%= %><left><left><left>
 imap <c-b>        debugger
 nmap <c-p>        :Files<cr>
 nmap <c-n>        :NERDTreeToggle<cr>
@@ -112,9 +111,6 @@ vmap <del> <nop>
 
 " Repeat remaps .
 silent! call repeat#set('\<Plug>MyWonderfulMap', v:count)
-
-" Airline
-let ggairline#extensions#tabline#enabled = 1
 
 " Closetag
 let g:closetag_filenames = '*.html,*.erb'
@@ -156,9 +152,7 @@ command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, {'option
 
 
 
-" -----------------------------------------------------------------------------
 " FUNCTIONS
-" -----------------------------------------------------------------------------
 function! MouseToggle()
   echohl WarningMsg
   if &mouse == 'a'
