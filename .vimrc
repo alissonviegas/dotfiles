@@ -8,18 +8,19 @@ Plug 'junegunn/fzf.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'luochen1990/rainbow'
 Plug 'matze/vim-move'
-Plug 'mg979/vim-visual-multi'
 Plug 'ngmy/vim-rubocop'
 Plug 'pacha/vem-tabline'
 Plug 'roxma/vim-paste-easy'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'svermeulen/vim-easyclip'
 Plug 'takac/vim-hardtime'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-ruby/vim-ruby'
@@ -34,7 +35,7 @@ colorscheme dracula
 
 set autoindent
 set background=dark
-set clipboard=unnamedplus
+set clipboard=unnamed
 set colorcolumn=80
 set cursorline
 set encoding=utf-8
@@ -94,7 +95,7 @@ imap <c-space>    <end><%= %><left><left><left>
 imap <c-b>        debugger
 nmap <c-p>        :Files<cr>
 nmap <c-n>        :NERDTreeToggle<cr>
-imap <f5>         <esc>mmgg=G'm
+nmap <f3>         :Rag<space>
 nmap <f5>         mmgg=G'm
 nmap <f9>         :set relativenumber!<cr>
 nmap <f10>        :call CloseAllBuffersButCurrent()<cr>
@@ -109,6 +110,9 @@ nmap <s-pageup>   :bprevious<cr>
 nmap <del> <nop>
 vmap <del> <nop>
 
+" Repeat remaps .
+silent! call repeat#set('\<Plug>MyWonderfulMap', v:count)
+
 " Airline
 let ggairline#extensions#tabline#enabled = 1
 
@@ -118,7 +122,7 @@ let g:closetag_filenames = '*.html,*.erb'
 " Hardtime
 let g:hardtime_default_on = 1
 let g:hardtime_allow_different_key = 1
-let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ]
+let g:hardtime_ignore_buffer_patterns = [ 'NERD.*' ]
 let g:hardtime_maxcount = 5
 
 " IndentLine_char
@@ -126,6 +130,7 @@ let g:indentLine_char = '¦'
 
 " Move
 let g:move_key_modifier = 'C'
+let g:move_key_modifier_visualmode = 'C'
 
 " NERDTree
 let g:NERDTreeWinSize = winwidth(0) / 3
@@ -136,13 +141,6 @@ let g:rainbow_active = 1
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-
-" Visual-multi
-let g:VM_maps = {}
-let g:VM_maps['Find Under']         = '<c-d>'
-let g:VM_maps['Find Subword Under'] = '<c-d>'
-let g:VM_show_warnings = 0
-let g:VM_theme_set_by_colorscheme = 1
 
 " WSL yank support
 let s:clip = '/mnt/c/Windows/System32/clip.exe'
