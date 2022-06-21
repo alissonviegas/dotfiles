@@ -12,16 +12,16 @@ Plug 'ngmy/vim-rubocop'
 Plug 'roxma/vim-paste-easy'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
-Plug 'svermeulen/vim-easyclip'
 Plug 'takac/vim-hardtime'
-Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/ruby-matchit'
 Plug 'yggdroot/indentline'
 Plug 'zxqfl/tabnine-vim'
 
@@ -72,10 +72,6 @@ autocmd InsertLeave *.{markdown,md} set conceallevel=2
 " Custom colors
 highlight Pmenu        ctermbg=0     ctermfg=15     guibg=#000000    guifg=#ffffff
 highlight TabLineSel   ctermbg=0     ctermfg=15     guibg=#000000    guifg=#ffffff
-highlight VM_Extend    ctermbg=24    ctermfg=237    guibg=#5f8787    guifg=#ffffff
-highlight VM_Cursor    ctermbg=31    ctermfg=237    guibg=#00af87    guifg=#ffffff
-highlight VM_Insert    ctermbg=239   ctermfg=237    guibg=#5f0087    guifg=#ffffff
-highlight VM_Mono      ctermbg=180   ctermfg=235    guibg=#e05f51    guifg=#ffffff
 
 " Cursor width
 let &t_SI = "\e[6 q"
