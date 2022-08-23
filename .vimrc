@@ -8,16 +8,19 @@ Plug 'junegunn/fzf.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'luochen1990/rainbow'
 Plug 'matze/vim-move'
+Plug 'mg979/vim-visual-multi'
 Plug 'ngmy/vim-rubocop'
 Plug 'roxma/vim-paste-easy'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'takac/vim-hardtime'
+Plug 'thanhkhoait/git-message.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-ruby/vim-ruby'
@@ -69,13 +72,13 @@ autocmd FileType eruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<%=' : '
 autocmd InsertEnter *.{markdown,md} set conceallevel=0
 autocmd InsertLeave *.{markdown,md} set conceallevel=2
 
-" Custom colors
-highlight Pmenu        ctermbg=0     ctermfg=15     guibg=#000000    guifg=#ffffff
-highlight TabLineSel   ctermbg=0     ctermfg=15     guibg=#000000    guifg=#ffffff
-
 " Cursor width
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
+
+" Custom colors
+highlight Pmenu      ctermbg=0 ctermfg=15 guibg=#000000 guifg=#ffffff
+highlight TabLineSel ctermbg=0 ctermfg=15 guibg=#000000 guifg=#ffffff
 
 " Search highlight
 augroup vimrc-incsearch-highlight
@@ -127,6 +130,14 @@ let g:move_key_modifier_visualmode = 'C'
 " NERDTree
 let g:NERDTreeWinSize = winwidth(0) / 3
 
+" Visual-multi
+let g:VM_highlight_matches = 'red'
+let g:VM_maps = {}
+let g:VM_maps['Find Subword Under'] = '<c-d>'
+let g:VM_maps['Find Under']         = '<c-d>'
+let g:VM_show_warnings = 0
+let g:VM_theme = 'paper'
+
 " Rainbow
 let g:rainbow_active = 1
 
@@ -146,9 +157,7 @@ endif
 " Activate ag_raw
 command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 
-
-
-" FUNCTIONS
+" Functions
 function! MouseToggle()
   echohl WarningMsg
   if &mouse == 'a'
@@ -161,8 +170,6 @@ function! MouseToggle()
   echohl NoneMsg
 endfunc
 
-
-
 function! LeftMarginToggle()
   let l:name = 'left_magin'
   if bufwinnr(l:name) > 0
@@ -172,8 +179,6 @@ function! LeftMarginToggle()
     execute 'topleft' l:width . 'vsplit +setlocal\ nobuflisted' l:name | wincmd p
   endif
 endfunction
-
-
 
 function! CloseAllBuffersButCurrent()
   let curr = bufnr('%')
