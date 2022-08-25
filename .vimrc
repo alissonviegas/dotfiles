@@ -91,6 +91,7 @@ augroup end
 
 " Mapping
 imap <c-b>        debugger
+imap <c-f>        # frozen_string_literal: true<cr>
 nmap <c-p>        :Files<cr>
 nmap <c-n>        :NERDTreeToggle<cr>
 nmap <f3>         :Rag<space>
