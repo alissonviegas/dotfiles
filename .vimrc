@@ -90,7 +90,7 @@ augroup vimrc-incsearch-highlight
 augroup end
 
 " Mapping
-imap <c-b>        debugger
+imap <c-b>        debugger<esc><esc>:w<cr>
 imap <c-f>        # frozen_string_literal: true<cr>
 nmap <c-p>        :Files<cr>
 nmap <c-n>        :NERDTreeToggle<cr>
