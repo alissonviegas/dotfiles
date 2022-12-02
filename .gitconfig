@@ -8,6 +8,7 @@
 	cb = checkout -b
 	co = commit -m
 	lg = log --all --graph --decorate --oneline --abbrev-commit
+	conflicts = !git diff --name-only --diff-filter=U --relative
 [core]
 	editor = vim
 	autocrlf = false
