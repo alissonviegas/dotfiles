@@ -189,3 +189,40 @@ function! CloseAllBuffersButCurrent()
   if curr > 1    | silent! execute '1,' . (curr-1) . 'bd'       | endif
   if curr < last | silent! execute (curr+1) . ',' . last . 'bd' | endif
 endfunction
+
+" Rails projections
+let g:rails_projections = {
+      \ "app/enumerations/*.rb": {
+      \   "command": "enumeration",
+      \   "affinity": "model",
+      \   "related": "app/models/%s.rb",
+      \   "template": "# frozen_string_literal: true\n\nclass * < EnumerateIt::Base\n\  associate_values()\nend"
+      \ },
+      \ "app/inputs/*_input.rb": {
+      \   "command": "input"
+      \ },
+      \ "app/javascript/*.js": {
+      \   "command": "javascript"
+      \ },
+      \ "app/options/*.rb": {
+      \   "command": "option",
+      \   "template": "# frozen_string_literal: true\n\nclass *\nend"
+      \ },
+      \ "app/services/*.rb": {
+      \   "command": "service",
+      \   "affinity": "model",
+      \   "related": "app/models/%s.rb",
+      \   "template": "# frozen_string_literal: true\n\nclass *\nend"
+      \ },
+      \ "config/routes.rb": {
+      \   "command": "routes"
+      \ },
+      \ "db/seeds.rb": {
+      \   "command": "seeds"
+      \ },
+      \ "Gemfile": {
+      \   "command": "gemfile"
+      \ },
+      \ "README.md": {
+      \   "command": "readme"
+      \ }}
