@@ -220,6 +220,11 @@ let g:rails_projections = {
       \ "db/seeds.rb": {
       \   "command": "seeds"
       \ },
+      \ "spec/factories/*.rb": {
+      \   "command": "factory",
+      \   "affinity": "collection",
+      \   "related": "db/schema.rb#%s"
+      \ },
       \ "Gemfile": {
       \   "command": "gemfile"
       \ },
