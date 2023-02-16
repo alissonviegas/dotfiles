@@ -90,19 +90,20 @@ augroup vimrc-incsearch-highlight
 augroup end
 
 " Mapping
+autocmd User Rails nmap <buffer> gf :tab sfind <Plug><cfile><CR>
 imap <c-b>        debugger<esc><esc>:w<cr>
 imap <c-f>        # frozen_string_literal: true<cr>
-nmap <c-p>        :Files<cr>
 nmap <c-n>        :NERDTreeToggle<cr>
+nmap <c-p>        :Files<cr>
+nmap <f10>        :call CloseAllBuffersButCurrent()<cr>
+nmap <f12>        :call LeftMarginToggle()<cr>
 nmap <f3>         :Rag<space>
 nmap <f5>         mmgg=G'm
 nmap <f9>         :set relativenumber!<cr>
-nmap <f10>        :call CloseAllBuffersButCurrent()<cr>
-nmap <f12>        :call LeftMarginToggle()<cr>
+nmap <leader>/    /<c-r><c-w>
+nmap <leader>S    :cfdo ,$s/<c-r><c-w>//g \| update<left><left><left><left><left><left><left><left><left><left><left>
 nmap <leader>m    :call MouseToggle()<cr>
 nmap <leader>s    :,$s/<c-r><c-w>//gc<left><left><left>
-nmap <leader>S    :cfdo ,$s/<c-r><c-w>//g \| update<left><left><left><left><left><left><left><left><left><left><left>
-nmap <leader>/    /<c-r><c-w>
 nmap <s-pagedown> :bnext<cr>
 nmap <s-pageup>   :bprevious<cr>
 
