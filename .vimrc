@@ -197,7 +197,7 @@ let g:rails_projections = {
       \   "command": "enumeration",
       \   "affinity": "model",
       \   "related": "app/models/%s.rb",
-      \   "template": "# frozen_string_literal: true\n\nclass * < EnumerateIt::Base\n\  associate_values()\nend"
+      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons} < EnumerateIt::Base\n\  associate_values()\nend"
       \ },
       \ "app/inputs/*_input.rb": {
       \   "command": "input"
