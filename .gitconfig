@@ -4,12 +4,13 @@
 	name = Alisson Viegas
 	email = alissonviegas@acsiv.com.br
 [alias]
-	ac = !git add -A && git commit -m
+	ac = ! git add -A && git commit -m
 	cb = checkout -b
 	ch = checkout
 	co = commit -m
 	lg = log --all --graph --decorate --oneline --abbrev-commit
-	conflicts = !git diff --name-only --diff-filter=U --relative
+	conflicts = ! git diff --name-only --diff-filter=U --relative
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 [core]
 	editor = vim
 	autocrlf = false
