@@ -106,6 +106,7 @@ nmap <leader>m    :call MouseToggle()<cr>
 nmap <leader>s    :,$s/<c-r><c-w>//gc<left><left><left>
 nmap <s-pagedown> :bnext<cr>
 nmap <s-pageup>   :bprevious<cr>
+vmap <s-y>        :w !xclip -selection clipboard<cr><cr> \| :echohl WarningMsg \| :echo 'Visual selection copied to system clipboard' \| :echohl NoneMsg<cr>
 
 " Disabling keys
 nmap <del> <nop>
@@ -114,6 +115,12 @@ vmap <del> <nop>
 " Repeat remaps .
 silent! call repeat#set('\<Plug>MyWonderfulMap', v:count)
 
+" Airline
+let g:airline_symbols = {}
+let g:airline_symbols.branch    = '⎇ '
+let g:airline_symbols.colnr     = '℅ :'
+let g:airline_symbols.maxlinenr = ' '
+
 " Closetag
 let g:closetag_filenames = '*.html,*.erb'
 
@@ -121,7 +128,7 @@ let g:closetag_filenames = '*.html,*.erb'
 let g:hardtime_default_on = 1
 let g:hardtime_allow_different_key = 1
 let g:hardtime_ignore_buffer_patterns = [ 'NERD.*' ]
-let g:hardtime_maxcount = 5
+let g:hardtime_maxcount = 3
 
 " IndentLine_char
 let g:indentLine_char = '¦'
@@ -148,14 +155,14 @@ let g:rainbow_active = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 
-" WSL yank support
-let s:clip = '/mnt/c/Windows/System32/clip.exe'
-if executable(s:clip)
-  augroup WSLYank
-    autocmd!
-    autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
-  augroup END
-endif
+" " WSL yank support
+" let s:clip = '/mnt/c/Windows/System32/clip.exe'
+" if executable(s:clip)
+"   augroup WSLYank
+"     autocmd!
+"     autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+"   augroup END
+" endif
 
 " Activate ag_raw
 command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
