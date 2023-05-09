@@ -77,6 +77,7 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
 " Custom colors
+highlight Normal     ctermbg=NONE         guibg=NONE
 highlight Pmenu      ctermbg=0 ctermfg=15 guibg=#000000 guifg=#ffffff
 highlight TabLineSel ctermbg=0 ctermfg=15 guibg=#000000 guifg=#ffffff
 
