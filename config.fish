@@ -1,6 +1,6 @@
 if status is-interactive
     set -gx EDITOR vim
-    status --is-interactive; and source (rbenv init -|psub)
+    ~/.rbenv/bin/rbenv init - fish | source
 
     # aliases
     alias dry='ruby lib/dry.rb'
