@@ -129,7 +129,6 @@ let g:closetag_filenames = '*.html,*.erb'
 let g:hardtime_default_on = 1
 let g:hardtime_allow_different_key = 1
 let g:hardtime_ignore_buffer_patterns = [ 'NERD.*' ]
-let g:hardtime_maxcount = 3
 
 " IndentLine_char
 let g:indentLine_char = '¦'
