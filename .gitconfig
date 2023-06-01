@@ -7,6 +7,7 @@
 	ac = ! git add -A && git commit -m
 	cb = checkout -b
 	ch = checkout
+	cm = checkout main
 	co = commit -m
 	lg = log --all --graph --decorate --oneline --abbrev-commit
 	conflicts = ! git diff --name-only --diff-filter=U --relative
