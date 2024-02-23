@@ -220,13 +220,13 @@ let g:rails_projections = {
       \ },
       \ "app/options/*.rb": {
       \   "command": "option",
-      \   "template": "# frozen_string_literal: true\n\nclass *\nend"
+      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}\nend"
       \ },
       \ "app/services/*.rb": {
       \   "command": "service",
       \   "affinity": "model",
       \   "related": "app/models/%s.rb",
-      \   "template": "# frozen_string_literal: true\n\nclass *\nend"
+      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}\nend"
       \ },
       \ "config/routes.rb": {
       \   "command": "routes"
