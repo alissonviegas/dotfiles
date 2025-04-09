@@ -232,6 +232,9 @@ let g:rails_projections = {
       \ "config/routes.rb": {
       \   "command": "routes"
       \ },
+      \ "config/routes/*.rb": {
+      \   "command": "routes"
+      \ },
       \ "db/seeds.rb": {
       \   "command": "seeds"
       \ },
