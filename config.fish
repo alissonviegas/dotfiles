@@ -12,7 +12,7 @@ if status is-interactive
     alias cpdotfiles='cp ~/.vimrc ~/code/dotfiles/ &&
                       cp ~/.gitconfig ~/code/dotfiles/ &&
                       cp ~/.psqlrc ~/code/dotfiles/ &&
-                      cp ~/.pspgconf ~/code/dotfiles/ &&
+                      cp ~/.tmux.conf ~/code/dotfiles/ &&
                       cp ~/.config/fish/config.fish ~/code/dotfiles/ &&
                       cp ~/.config/fish/functions/bat.fish ~/code/dotfiles/ &&
                       cd ~/code/dotfiles/ &&
@@ -22,4 +22,6 @@ if status is-interactive
                       echo'
 
     cd code/acsiv
+    tmux new -A
+    clear
 end
