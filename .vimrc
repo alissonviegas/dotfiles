@@ -140,6 +140,8 @@ let g:move_key_modifier_visualmode = 'C'
 
 " NERDTree
 let g:NERDTreeWinSize = winwidth(0) / 3
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
 
 " Visual-multi
 let g:VM_highlight_matches = 'red'
