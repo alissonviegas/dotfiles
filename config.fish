@@ -7,7 +7,6 @@ if status is-interactive
     alias dry='ruby lib/dry.rb'
     alias pg='psql -U postgres acsiv_development'
     alias r='bin/rails server -p 3000'
-    alias rf='bin/dev'
     alias rmprepush='rm .git/hooks/pre-push'
 
     alias cpdotfiles='cp ~/.vimrc ~/code/dotfiles/ &&
