@@ -1,5 +1,6 @@
 if status is-interactive
     set -gx EDITOR vim
+
     ~/.rbenv/bin/rbenv init - fish | source
 
     # aliases
@@ -22,6 +23,4 @@ if status is-interactive
                       echo'
 
     cd code/acsiv
-    tmux new -A
-    clear
 end
