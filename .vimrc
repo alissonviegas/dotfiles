@@ -203,16 +203,14 @@ endfunction
 
 " Rails projections
 let g:rails_projections = {
-      \ "app/decorators/*.rb": {
+      \ "app/decorators/*_decorator.rb": {
       \   "command": "decorator",
       \   "affinity": "model",
-      \   "related": "app/models/%s.rb",
-      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons} < SimpleDelegator\nend"
+      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Decorator < SimpleDelegator\nend"
       \ },
       \ "app/enumerations/*.rb": {
       \   "command": "enumeration",
       \   "affinity": "model",
-      \   "related": "app/models/%s.rb",
       \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons} < EnumerateIt::Base\n\  associate_values(\n  )\nend"
       \ },
       \ "app/inputs/*_input.rb": {
@@ -221,15 +219,18 @@ let g:rails_projections = {
       \ "app/javascript/*.js": {
       \   "command": "javascript"
       \ },
-      \ "app/options/*.rb": {
+      \ "app/options/*_option.rb": {
       \   "command": "option",
-      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}\nend"
+      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Option\nend"
       \ },
-      \ "app/services/*.rb": {
-      \   "command": "service",
+      \ "app/presenters/*_presenter.rb": {
+      \   "command": "presenter",
       \   "affinity": "model",
-      \   "related": "app/models/%s.rb",
-      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}\nend"
+      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Presenter < SimpleDelegator\nend"
+      \ },
+      \ "app/services/*_service.rb": {
+      \   "command": "service",
+      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Service\nend"
       \ },
       \ "config/routes.rb": {
       \   "command": "routes"
