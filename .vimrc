@@ -226,7 +226,7 @@ let g:rails_projections = {
       \ "app/presenters/*_presenter.rb": {
       \   "command": "presenter",
       \   "affinity": "model",
-      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Presenter < SimpleDelegator\nend"
+      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Presenter < ApplicationPresenter\nend"
       \ },
       \ "app/services/*_service.rb": {
       \   "command": "service",
