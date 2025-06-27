@@ -226,7 +226,12 @@ let g:rails_projections = {
       \ "app/presenters/*_presenter.rb": {
       \   "command": "presenter",
       \   "affinity": "model",
-      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Presenter < ApplicationPresenter\nend"
+      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Presenter < ApplicationPresenter\n  def content\n  end\nend"
+      \ },
+      \ "app/queries/*_query.rb": {
+      \   "command": "query",
+      \   "affinity": "model",
+      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Query < ApplicationQuery\n  def query\n  end\nend"
       \ },
       \ "app/services/*_service.rb": {
       \   "command": "service",
