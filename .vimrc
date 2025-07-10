@@ -231,11 +231,16 @@ let g:rails_projections = {
       \ "app/queries/*_query.rb": {
       \   "command": "query",
       \   "affinity": "model",
-      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Query < ApplicationQuery\n  def query\n  end\nend"
+      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Query < ApplicationQuery\n  def call\n  end\nend"
       \ },
       \ "app/services/*_service.rb": {
       \   "command": "service",
       \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Service\nend"
+      \ },
+      \ "app/validators/*_validator.rb": {
+      \   "command": "validator",
+      \   "affinity": "model",
+      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Validator < ActiveModel::EachValidator\n  def validate_each(record, attribute, value)\n  end\nend"
       \ },
       \ "config/routes.rb": {
       \   "command": "routes"
