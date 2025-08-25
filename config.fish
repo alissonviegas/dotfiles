@@ -24,8 +24,8 @@ if status is-interactive
                       git pull &&
                       cp ~/code/dotfiles/.gitconfig ~/ &&
                       cp ~/code/dotfiles/.psqlrc ~/ &&
-                      cp ~/code/dotfiles/.config/fish/config.fish ~/ &&
-                      cp ~/code/dotfiles/.config/fish/functions/bat.fish ~/ &&
+                      cp ~/code/dotfiles/config.fish ~/.config/fish/ &&
+                      cp ~/code/dotfiles/bat.fish ~/.config/fish/functions/ &&
                       clear'
 
     cd code/acsiv
