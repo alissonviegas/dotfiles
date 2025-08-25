@@ -12,7 +12,6 @@ if status is-interactive
     alias cpdotfiles='cp ~/.vimrc ~/code/dotfiles/ &&
                       cp ~/.gitconfig ~/code/dotfiles/ &&
                       cp ~/.psqlrc ~/code/dotfiles/ &&
-                      cp ~/.tmux.conf ~/code/dotfiles/ &&
                       cp ~/.config/fish/config.fish ~/code/dotfiles/ &&
                       cp ~/.config/fish/functions/bat.fish ~/code/dotfiles/ &&
                       cd ~/code/dotfiles/ &&
@@ -20,6 +19,14 @@ if status is-interactive
                       echo &&
                       git diff &&
                       echo'
+
+    alias updotfiles='cd ~/code/dotfiles/ &&
+                      git pull &&
+                      cp ~/code/dotfiles/.gitconfig ~/ &&
+                      cp ~/code/dotfiles/.psqlrc ~/ &&
+                      cp ~/code/dotfiles/.config/fish/config.fish ~/ &&
+                      cp ~/code/dotfiles/.config/fish/functions/bat.fish ~/ &&
+                      clear'
 
     cd code/acsiv
 end
