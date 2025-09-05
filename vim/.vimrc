@@ -2,6 +2,7 @@ call plug#begin()
 Plug 'alvan/vim-closetag'
 Plug 'bbatsov/rubocop'
 Plug 'dracula/vim'
+Plug 'houtsnip/vim-emacscommandline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
