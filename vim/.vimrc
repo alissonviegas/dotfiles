@@ -92,27 +92,27 @@ augroup vimrc-incsearch-highlight
 augroup end
 
 " Mapping
-autocmd User Rails nmap <buffer> gf :tab sfind <Plug><cfile><CR>
-imap <c-b>        debugger<esc><esc>:w<cr>
-imap <c-f>        # frozen_string_literal: true<cr>
-nmap <c-n>        :NERDTreeToggle<cr>
-nmap <c-p>        :Files<cr>
-nmap <f10>        :call CloseAllBuffersButCurrent()<cr>
-nmap <f12>        :call LeftMarginToggle()<cr>
-nmap <f3>         :Rag<space>
-nmap <f5>         mmgg=G'm
-nmap <f9>         :set relativenumber!<cr>
-nmap <leader>/    /<c-r><c-w>
-nmap <leader>S    :cfdo ,$s/<c-r><c-w>//g \| update<left><left><left><left><left><left><left><left><left><left><left>
-nmap <leader>m    :call MouseToggle()<cr>
-nmap <leader>s    :,$s/<c-r><c-w>//gc<left><left><left>
-nmap <s-pagedown> :bnext<cr>
-nmap <s-pageup>   :bprevious<cr>
-vmap <s-y>        :w !xclip -selection clipboard<cr><cr> \| :echohl WarningMsg \| :echo 'Visual selection copied to system clipboard' \| :echohl NoneMsg<cr>
+autocmd User Rails nnoremap <buffer> gf :tab sfind <Plug><cfile><cr>
+inoremap <c-b>        debugger<esc><esc>:w<cr>
+inoremap <c-f>        # frozen_string_literal: true<cr>
+nnoremap <c-n>        :NERDTreeToggle<cr>
+nnoremap <c-p>        :Files<cr>
+nnoremap <f10>        :call CloseAllBuffersButCurrent()<cr>
+nnoremap <f12>        :call LeftMarginToggle()<cr>
+nnoremap <f3>         :Rag<space>
+nnoremap <f5>         mmgg=G'm
+nnoremap <f9>         :set relativenumber!<cr>
+nnoremap <leader>/    /<c-r><c-w>
+nnoremap <leader>S    :cfdo ,$s/<c-r><c-w>//g \| update<left><left><left><left><left><left><left><left><left><left><left>
+nnoremap <leader>m    :call MouseToggle()<cr>
+nnoremap <leader>s    :,$s/<c-r><c-w>//gc<left><left><left>
+nnoremap <s-pagedown> :bnext<cr>
+nnoremap <s-pageup>   :bprevious<cr>
+vnoremap <s-y>        :w !xclip -selection clipboard<cr><cr> \| :echohl WarningMsg \| :echo 'Visual selection copied to system clipboard' \| :echohl NoneMsg<cr>
 
 " Disabling keys
-nmap <del> <nop>
-vmap <del> <nop>
+nnoremap <del> <nop>
+vnoremap <del> <nop>
 
 " Repeat remaps .
 silent! call repeat#set('\<Plug>MyWonderfulMap', v:count)
