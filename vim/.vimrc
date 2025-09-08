@@ -92,7 +92,7 @@ augroup vimrc-incsearch-highlight
 augroup end
 
 " Mapping
-autocmd User Rails nnoremap <buffer> gf :tab sfind <Plug><cfile><cr>
+autocmd User Rails nmap <buffer> gf :tab sfind <Plug><cfile><cr>
 inoremap <c-b>        debugger<esc><esc>:w<cr>
 inoremap <c-f>        # frozen_string_literal: true<cr>
 nnoremap <c-n>        :NERDTreeToggle<cr>
