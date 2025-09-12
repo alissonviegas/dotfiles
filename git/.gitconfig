@@ -10,6 +10,7 @@
 	cm = checkout main
 	co = commit -m
 	lg = log --all --graph --decorate --oneline --abbrev-commit
+	ss = show --stat HEAD
 	conflicts = ! git diff --name-only --diff-filter=U --relative
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 [core]
