@@ -6,7 +6,7 @@ This is just a selection of my dot-files. You may find some of them useful but m
 
 Link all:
 ```
-stow -t ~ fish git psql vim
+stow -R -t ~ fish git psql vim
 ```
 
 Unlink all:
