@@ -8,9 +8,13 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'luochen1990/rainbow'
+Plug 'mattn/vim-lsp-settings'
 Plug 'matze/vim-move'
 Plug 'mg979/vim-visual-multi'
 Plug 'ngmy/vim-rubocop'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'roxma/vim-paste-easy'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -21,16 +25,10 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-ruby/vim-ruby'
-Plug 'vim-scripts/ruby-matchit'
 Plug 'yggdroot/indentline'
-Plug 'zxqfl/tabnine-vim'
-
-" https://github.com/ycm-core/YouCompleteMe#linux-64-bit
-Plug 'valloric/youcompleteme'
 call plug#end()
 
 syntax on
@@ -49,10 +47,11 @@ set list
 set listchars=tab:→·,trail:~
 set nobackup
 set noswapfile
-set relativenumber
 set number
 set pastetoggle=<F2>
+set relativenumber
 set shiftwidth=2
+set signcolumn=no
 set smartcase
 set smartindent
 set smarttab
@@ -93,22 +92,20 @@ augroup end
 
 " Mapping
 autocmd User Rails nmap <buffer> gf :tab sfind <Plug><cfile><cr>
-inoremap <c-b>        debugger<esc><esc>:w<cr>
-inoremap <c-f>        # frozen_string_literal: true<cr>
-nnoremap <c-n>        :NERDTreeToggle<cr>
-nnoremap <c-p>        :Files<cr>
-nnoremap <f10>        :call CloseAllBuffersButCurrent()<cr>
-nnoremap <f12>        :call LeftMarginToggle()<cr>
-nnoremap <f3>         :Rag<space>
-nnoremap <f5>         mmgg=G'm
-nnoremap <f9>         :set relativenumber!<cr>
-nnoremap <leader>/    /<c-r><c-w>
-nnoremap <leader>S    :cfdo ,$s/<c-r><c-w>//g \| update<left><left><left><left><left><left><left><left><left><left><left>
-nnoremap <leader>m    :call MouseToggle()<cr>
-nnoremap <leader>s    :,$s/<c-r><c-w>//gc<left><left><left>
-nnoremap <s-pagedown> :bnext<cr>
-nnoremap <s-pageup>   :bprevious<cr>
-vnoremap <s-y>        :w !xclip -selection clipboard<cr><cr> \| :echohl WarningMsg \| :echo 'Visual selection copied to system clipboard' \| :echohl NoneMsg<cr>
+inoremap <c-b>     debugger<esc><esc>:w<cr>
+inoremap <c-f>     # frozen_string_literal: true<cr>
+nnoremap <c-f>     :Rag<space>
+nnoremap <c-n>     :NERDTreeToggle<cr>
+nnoremap <c-p>     :Files<cr>
+nnoremap <f10>     :call CloseAllBuffersButCurrent()<cr>
+nnoremap <f12>     :call LeftMarginToggle()<cr>
+nnoremap <f5>      mmgg=G'm
+nnoremap <leader>/ /<c-r><c-w>
+nnoremap <leader>S :cfdo ,$s/<c-r><c-w>//g \| update<left><left><left><left><left><left><left><left><left><left><left>
+nnoremap <leader>[ :bprevious<cr>
+nnoremap <leader>] :bnext<cr>
+nnoremap <leader>s :,$s/<c-r><c-w>//gc<left><left><left>
+vnoremap <s-y>     :w !xclip -selection clipboard<cr><cr> \| :echohl WarningMsg \| :echo 'Visual selection copied to system clipboard' \| :echohl NoneMsg<cr>
 
 " Disabling keys
 nnoremap <del> <nop>
@@ -123,67 +120,60 @@ let g:airline_symbols.branch    = '⎇ '
 let g:airline_symbols.colnr     = '℅ :'
 let g:airline_symbols.maxlinenr = ' '
 
+" Asyncomplete
+let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_min_chars  = 1
+
 " Closetag
 let g:closetag_filenames = '*.html,*.erb'
 
 " Hardtime
-let g:hardtime_default_on = 1
-let g:hardtime_allow_different_key = 1
+let g:hardtime_default_on               = 1
+let g:hardtime_allow_different_key      = 1
 let g:hardtime_motion_with_count_resets = 1
-let g:hardtime_ignore_buffer_patterns = [ 'NERD.*' ]
+let g:hardtime_ignore_buffer_patterns   = [ 'NERD.*' ]
 
 " IndentLine_char
 let g:indentLine_char = '¦'
 
+" LSP
+let g:lsp_log_file = ''
+if executable('ruby-lsp')
+  au User lsp_setup call lsp#register_server({
+  \ 'name': 'ruby-lsp',
+  \ 'cmd': {server_info->['ruby-lsp']},
+  \ 'allowlist': ['ruby'],
+  \ })
+endif
+
 " Move
-let g:move_key_modifier = 'C'
+let g:move_key_modifier            = 'C'
 let g:move_key_modifier_visualmode = 'C'
 
 " NERDTree
 let g:NERDTreeWinSize = winwidth(0) / 3
-let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowExpandable  = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 
 " Visual-multi
-let g:VM_highlight_matches = 'red'
-let g:VM_maps = {}
+let g:VM_highlight_matches          = 'red'
+let g:VM_maps                       = {}
 let g:VM_maps['Find Subword Under'] = '<c-d>'
 let g:VM_maps['Find Under']         = '<c-d>'
-let g:VM_show_warnings = 0
-let g:VM_theme = 'paper'
+let g:VM_show_warnings              = 0
+let g:VM_theme                      = 'paper'
 
 " Rainbow
 let g:rainbow_active = 1
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-
-" " WSL yank support
-" let s:clip = '/mnt/c/Windows/System32/clip.exe'
-" if executable(s:clip)
-"   augroup WSLYank
-"     autocmd!
-"     autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
-"   augroup END
-" endif
+let g:syntastic_auto_loc_list            = 1
 
 " Activate ag_raw
 command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 
 " Functions
-function! MouseToggle()
-  echohl WarningMsg
-  if &mouse == 'a'
-    set mouse=
-    echo 'Mouse disabled'
-  else
-    set mouse=a
-    echo 'Mouse enabled'
-  endif
-  echohl NoneMsg
-endfunc
-
 function! LeftMarginToggle()
   let l:name = 'left_magin'
   if bufwinnr(l:name) > 0
