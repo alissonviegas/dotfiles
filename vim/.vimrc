@@ -147,8 +147,8 @@ if executable('ruby-lsp')
 endif
 
 " Move
-let g:move_key_modifier            = 'C'
-let g:move_key_modifier_visualmode = 'C'
+let g:move_key_modifier            = 'S'
+let g:move_key_modifier_visualmode = 'S'
 
 " NERDTree
 let g:NERDTreeWinSize = winwidth(0) / 3
@@ -158,8 +158,10 @@ let g:NERDTreeDirArrowCollapsible = '-'
 " Visual-multi
 let g:VM_highlight_matches          = 'red'
 let g:VM_maps                       = {}
-let g:VM_maps['Find Subword Under'] = '<c-d>'
-let g:VM_maps['Find Under']         = '<c-d>'
+let g:VM_maps['Add Cursor Down']    = '<C-j>'
+let g:VM_maps['Add Cursor Up']      = '<C-k>'
+let g:VM_maps['Find Subword Under'] = '<C-d>'
+let g:VM_maps['Find Under']         = '<C-d>'
 let g:VM_show_warnings              = 0
 let g:VM_theme                      = 'paper'
 
