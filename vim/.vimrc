@@ -94,7 +94,7 @@ augroup end
 autocmd User Rails nmap <buffer> gf :tab sfind <Plug><cfile><cr>
 inoremap <c-b>     debugger<esc><esc>:w<cr>
 inoremap <c-f>     # frozen_string_literal: true<cr>
-nnoremap <c-f>     :Rag<space>
+nnoremap <c-f>     :Rrg<space>
 nnoremap <c-n>     :NERDTreeToggle<cr>
 nnoremap <c-p>     :Files<cr>
 nnoremap <f10>     :call CloseAllBuffersButCurrent()<cr>
@@ -172,8 +172,13 @@ let g:rainbow_active = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list            = 1
 
-" Activate ag_raw
-command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
+" Rrg
+command! -bang -nargs=* Rrg call fzf#vim#grep(
+  \ 'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
+  \ 1,
+  \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}),
+  \ <bang>0
+  \ )
 
 " Functions
 function! LeftMarginToggle()
