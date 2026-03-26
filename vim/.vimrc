@@ -201,7 +201,7 @@ endfunction
 
 " Rails projections
 let g:rails_projections = {
-      \ "app/decorators/*_decorator.rb": {
+      \ "app/decorators/*.rb": {
       \   "command": "decorator",
       \   "affinity": "model",
       \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Decorator < SimpleDelegator\nend"
@@ -211,31 +211,31 @@ let g:rails_projections = {
       \   "affinity": "model",
       \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons} < EnumerateIt::Base\n\  associate_values(\n  )\nend"
       \ },
-      \ "app/inputs/*_input.rb": {
+      \ "app/inputs/*.rb": {
       \   "command": "input"
       \ },
       \ "app/javascript/*.js": {
       \   "command": "javascript"
       \ },
-      \ "app/options/*_option.rb": {
+      \ "app/options/*.rb": {
       \   "command": "option",
       \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Option\nend"
       \ },
-      \ "app/presenters/*_presenter.rb": {
+      \ "app/presenters/*.rb": {
       \   "command": "presenter",
       \   "affinity": "model",
       \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Presenter < ApplicationPresenter\n  def content\n  end\nend"
       \ },
-      \ "app/queries/*_query.rb": {
+      \ "app/queries/*.rb": {
       \   "command": "query",
       \   "affinity": "model",
       \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Query < ApplicationQuery\n  def call\n  end\nend"
       \ },
-      \ "app/services/*_service.rb": {
+      \ "app/services/*.rb": {
       \   "command": "service",
       \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Service\nend"
       \ },
-      \ "app/validators/*_validator.rb": {
+      \ "app/validators/*.rb": {
       \   "command": "validator",
       \   "affinity": "model",
       \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Validator < ActiveModel::EachValidator\n  def validate_each(record, attribute, value)\n  end\nend"
