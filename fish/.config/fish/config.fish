@@ -1,7 +1,7 @@
 if status is-interactive
     set -gx EDITOR vim
 
-    ~/.rbenv/bin/rbenv init - fish | source
+    ~/.local/bin/mise activate fish | source
     zoxide init fish | source
 
     alias dry='ruby lib/dry.rb'
