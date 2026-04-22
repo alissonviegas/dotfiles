@@ -2,7 +2,6 @@ if status is-interactive
     set -gx EDITOR vim
 
     ~/.local/bin/mise activate fish | source
-    zoxide init fish | source
 
     alias dry='ruby lib/dry.rb'
     alias pg='psql -U postgres acsiv_development'
