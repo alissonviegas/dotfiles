@@ -1,7 +1,8 @@
 if status is-interactive
+    set -g fish_greeting
     set -gx EDITOR vim
 
-    ~/.local/bin/mise activate fish | source
+    ~/.rbenv/bin/rbenv init - fish | source
 
     alias dry='ruby lib/dry.rb'
     alias pg='psql -U postgres acsiv_development'
