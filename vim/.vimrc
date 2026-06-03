@@ -127,6 +127,11 @@ let g:asyncomplete_min_chars  = 1
 " Closetag
 let g:closetag_filenames = '*.html,*.erb'
 
+" Git-message
+let g:gmi#prefix = '➤ '
+let g:gmi#time_icon = '•'
+let g:gmi#message_icon = '•'
+
 " Hardtime
 let g:hardtime_default_on               = 1
 let g:hardtime_allow_different_key      = 1
