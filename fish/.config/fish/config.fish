@@ -2,7 +2,7 @@ if status is-interactive
     set -g fish_greeting
     set -gx EDITOR vim
 
-    ~/.rbenv/bin/rbenv init - fish | source
+    ~/.local/bin/mise activate fish | source
 
     alias dry='ruby lib/dry.rb'
     alias pg='psql -U postgres acsiv_development'
@@ -10,5 +10,5 @@ if status is-interactive
     alias rmprepush='rm .git/hooks/pre-push'
     alias fd=fdfind
 
-    cd code/acsiv
+    cd ~/code/acsiv/
 end
