@@ -22,3 +22,5 @@
 	helper = store
 [init]
 	defaultBranch = main
+[credential "https://git.heroku.com"]
+	helper = !heroku git:credentials
