@@ -35,6 +35,7 @@ syntax on
 colorscheme dracula
 
 set autoindent
+set autoread
 set background=dark
 set clipboard=unnamed
 set colorcolumn=80
@@ -58,6 +59,7 @@ set smarttab
 set softtabstop=2
 set splitright
 set termguicolors
+set updatetime=1000
 set wildmenu
 
 filetype on
@@ -71,6 +73,10 @@ autocmd FileType eruby let b:AutoPairs = AutoPairsDefine({'<%' : '%>', '<%=' : '
 
 autocmd InsertEnter *.{markdown,md} set conceallevel=0
 autocmd InsertLeave *.{markdown,md} set conceallevel=2
+
+" Auto update
+autocmd FocusGained,BufEnter * checktime
+autocmd VimEnter * call timer_start(1000, {-> execute('checktime')}, {'repeat': -1})
 
 " Cursor width
 let &t_SI = "\e[6 q"
