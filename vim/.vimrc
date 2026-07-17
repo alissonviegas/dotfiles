@@ -235,7 +235,7 @@ let g:rails_projections = {
       \ "app/presenters/*.rb": {
       \   "command": "presenter",
       \   "affinity": "model",
-      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons}Presenter < ApplicationPresenter\n  def content\n  end\nend"
+      \   "template": "# frozen_string_literal: true\n\nclass {camelcase|capitalize|colons} < ApplicationPresenter\n  def content\n  end\nend"
       \ },
       \ "app/queries/*.rb": {
       \   "command": "query",
