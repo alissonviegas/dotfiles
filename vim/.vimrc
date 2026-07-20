@@ -12,6 +12,7 @@ Plug 'mattn/vim-lsp-settings'
 Plug 'matze/vim-move'
 Plug 'mg979/vim-visual-multi'
 Plug 'ngmy/vim-rubocop'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
@@ -130,6 +131,26 @@ let g:airline_symbols.maxlinenr = ' '
 let g:asyncomplete_auto_popup = 1
 let g:asyncomplete_min_chars  = 1
 
+call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+\ 'name': 'buffer',
+\ 'whitelist': ['*'],
+\ 'completor': function('asyncomplete#sources#buffer#completor'),
+\ }))
+
+" Confirm the highlighted completion with <CR>. Chains onto whatever <CR>
+" already does (auto-pairs, endwise) when the popup isn't visible, since
+" those set their own buffer-local <CR> mapping on FileType.
+augroup asyncomplete_confirm
+  autocmd!
+  autocmd FileType *
+        \ let b:asyncomplete_cr_fallback = maparg('<CR>', 'i') |
+        \ inoremap <buffer><expr> <CR> pumvisible() ? asyncomplete#close_popup() : (empty(b:asyncomplete_cr_fallback) ? "\<CR>" : b:asyncomplete_cr_fallback)
+augroup END
+
+" Navigate the completion popup with <C-j>/<C-k> (no arrow keys on a 60% keyboard)
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
 " Closetag
 let g:closetag_filenames = '*.html,*.erb'
 
@@ -149,13 +170,6 @@ let g:indentLine_char = '¦'
 
 " LSP
 let g:lsp_log_file = ''
-if executable('ruby-lsp')
-  au User lsp_setup call lsp#register_server({
-  \ 'name': 'ruby-lsp',
-  \ 'cmd': {server_info->['ruby-lsp']},
-  \ 'allowlist': ['ruby'],
-  \ })
-endif
 
 " Move
 let g:move_key_modifier            = 'S'
