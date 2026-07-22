@@ -140,11 +140,32 @@ call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options
 " Confirm the highlighted completion with <CR>. Chains onto whatever <CR>
 " already does (auto-pairs, endwise) when the popup isn't visible, since
 " those set their own buffer-local <CR> mapping on FileType.
+"
+" maparg() on an <expr> mapping returns the *expression text*, not its
+" evaluated result, so it can't just be returned from our own <expr>
+" mapping (that inserts the text itself, literally, as typed characters).
+" Re-declare it through :execute instead, so <> notation and <expr> get
+" parsed by :map like auto-pairs/endwise already do for the same reason.
+function! s:AsyncompleteMapCR() abort
+  let info = maparg('<CR>', 'i', 0, 1)
+  if !empty(info) && get(info, 'rhs', '') =~# 'asyncomplete_cr_fallback'
+    return
+  endif
+  if empty(info)
+    let fallback = '<CR>'
+  else
+    let rhs = substitute(info.rhs, '<SID>', '<SNR>' . info.sid . '_', 'g')
+    execute 'inoremap <buffer><script>' . (info.expr ? '<expr>' : '')
+          \ . ' <SID>(asyncomplete_cr_fallback) ' . rhs
+    let fallback = '<SID>(asyncomplete_cr_fallback)'
+  endif
+  execute 'inoremap <buffer><script><expr> <CR>'
+        \ . ' pumvisible() ? asyncomplete#close_popup() : "\' . fallback . '"'
+endfunction
+
 augroup asyncomplete_confirm
   autocmd!
-  autocmd FileType *
-        \ let b:asyncomplete_cr_fallback = maparg('<CR>', 'i') |
-        \ inoremap <buffer><expr> <CR> pumvisible() ? asyncomplete#close_popup() : (empty(b:asyncomplete_cr_fallback) ? "\<CR>" : b:asyncomplete_cr_fallback)
+  autocmd FileType * call s:AsyncompleteMapCR()
 augroup END
 
 " Navigate the completion popup with <C-j>/<C-k> (no arrow keys on a 60% keyboard)
